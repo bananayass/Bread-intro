@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giới Thiệu | Tiệm Bánh Mì Ông Dũng</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #b11212; --primary-dark: #8c0f0f; --primary-darker: #a50909;
+      --secondary: #d4a017; --cream: #faf7f2; --text-dark: #1a1a1a; --text-muted: #666; --border: #e5e0d8;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Be Vietnam Pro', sans-serif; background: var(--cream); color: var(--text-dark); line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+    .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: linear-gradient(135deg, #c8231a 0%, #8b1510 100%); backdrop-filter: blur(10px); color: #fff; padding: 0 40px; height: 80px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3); transition: all .4s ease; }
+    .navbar.scrolled { background: rgba(200, 35, 26, 0.95); height: 64px; box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3); }
+    .navbar-logo { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 900; color: #fff; display: flex; align-items: center; gap: 14px; text-decoration: none; }
+    .navbar-logo img { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 3px solid rgba(255, 255, 255, 0.3); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); transition: all .3s; }
+    .navbar-logo:hover img { border-color: #d4a017; transform: scale(1.05); }
+    .navbar-logo-text { display: flex; flex-direction: column; line-height: 1.2; }
+    .navbar-logo-text span { font-size: 0.7rem; font-family: 'Be Vietnam Pro', sans-serif; font-weight: 400; opacity: 0.8; letter-spacing: 1px; }
+    .navbar-links { display: flex; gap: 32px; list-style: none; }
+    .navbar-links a { color: rgba(255,255,255,.85); font-size: .9rem; font-weight: 500; transition: color .2s; }
+    .navbar-links a:hover, .navbar-links a.active { color: var(--secondary); }
+    .navbar-cta { background: var(--secondary); color: #fff !important; font-weight: 600; padding: 8px 20px; border-radius: 6px; font-size: .875rem !important; transition: background .2s !important; }
+    .navbar-cta:hover { background: #b8890f !important; }
+    .hamburger { display: none; background: none; border: none; color: #fff; cursor: pointer; padding: 4px; font-size: 1.5rem; }
+    .mobile-menu { display: none; position: fixed; inset: 0; background: linear-gradient(135deg, #c8231a 0%, #8b1510 100%); z-index: 200; flex-direction: column; padding: 100px 40px 40px; gap: 8px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: rgba(255,255,255,.85); font-size: 1.1rem; font-weight: 500; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.1); transition: all .25s; }
+    .mobile-order-btn { margin-top: 24px; background: #d4a017; color: #fff; font-weight: 700; text-align: center; padding: 14px; border-radius: 8px; border: none; font-size: 1rem; cursor: pointer; }
+    .close-menu { position: absolute; top: 20px; right: 20px; background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; }
+
+    .page-hero { background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-darker) 100%); min-height: 40vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 100px 24px 60px; position: relative; }
+    .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 70% 50%, rgba(212,160,23,.1) 0%, transparent 60%); }
+    .page-hero-content { position: relative; z-index: 1; }
+    .page-hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; color: #fff; margin-bottom: 12px; }
+    .page-hero p { color: rgba(255,255,255,.7); max-width: 500px; margin: 0 auto; }
+
+    .section { padding: 72px 24px; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-title { text-align: center; font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 700; color: var(--text-dark); margin-bottom: 8px; }
+    .section-title-underline { width: 60px; height: 4px; background: var(--primary); border-radius: 2px; margin: 8px auto 48px; }
+
+    .info-block { display: flex; gap: 48px; align-items: center; margin-bottom: 64px; }
+    .info-block.reverse { flex-direction: row-reverse; }
+    .info-img { flex: 0 0 45%; aspect-ratio: 4/3; border-radius: 12px; overflow: hidden; background: linear-gradient(135deg, rgba(177,18,18,.2), rgba(212,160,23,.2)); display: flex; align-items: center; justify-content: center; font-size: 4rem; }
+    .info-text { flex: 1; }
+    .info-text h3 { font-size: 1.5rem; font-weight: 700; color: var(--text-dark); margin-bottom: 12px; }
+    .info-text p { color: var(--text-muted); line-height: 1.7; }
+
+    .ingredients-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
+    .ingredient-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+    .ingredient-img { width: 100%; aspect-ratio: 1; background: linear-gradient(135deg, rgba(177,18,18,.15), rgba(212,160,23,.15)); display: flex; align-items: center; justify-content: center; font-size: 3rem; }
+    .ingredient-info { padding: 16px; }
+    .ingredient-info h4 { font-size: 1rem; font-weight: 700; color: var(--text-dark); margin-bottom: 6px; }
+    .ingredient-info p { font-size: .85rem; color: var(--text-muted); }
+
+    .stats-row { display: flex; justify-content: center; gap: 64px; margin-top: 48px; flex-wrap: wrap; }
+    .stat { text-align: center; }
+    .stat-number { font-size: 2.5rem; font-weight: 700; color: var(--primary); }
+    .stat-label { font-size: .875rem; color: var(--text-muted); margin-top: 4px; }
+
+    .footer { background: var(--primary-darker); color: rgba(255,255,255,.7); padding: 56px 24px 24px; }
+    .footer-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,.15); }
+    .footer h4 { font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--secondary); margin-bottom: 16px; }
+    .footer ul { list-style: none; }
+    .footer ul li { margin-bottom: 10px; }
+    .footer ul li a { font-size: .875rem; color: rgba(255,255,255,.65); transition: color .2s; }
+    .footer ul li a:hover { color: #fff; }
+    .footer-bottom { max-width: 1100px; margin: 0 auto; padding-top: 24px; text-align: center; font-size: .8rem; color: rgba(255,255,255,.4); }
+
+    @media (max-width: 768px) {
+      .navbar-links { display: none; }
+      .hamburger { display: block; }
+      .mobile-menu { display: none; position: fixed; inset: 0; background: linear-gradient(135deg, #c8231a 0%, #8b1510 100%); z-index: 200; flex-direction: column; padding: 100px 40px 40px; gap: 8px; }
+      .mobile-menu.open { display: flex; }
+      .mobile-menu a { color: rgba(255,255,255,.85); font-size: 1.1rem; font-weight: 500; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.1); transition: all .25s; }
+      .mobile-order-btn { margin-top: 24px; background: #d4a017; color: #fff; font-weight: 700; text-align: center; padding: 14px; border-radius: 8px; border: none; font-size: 1rem; cursor: pointer; }
+      .close-menu { position: absolute; top: 20px; right: 20px; background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; }
+      .info-block { flex-direction: column !important; gap: 24px; }
+      .info-img { flex: none; width: 100%; }
+      .stats-row { gap: 32px; }
+      .page-hero { padding: 100px 24px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <a href="/index.html" class="navbar-logo">
+    <img src="/bmod.png" alt="Tiệm Bánh Mì Ông Dũng">
+    <div class="navbar-logo-text">
+      Tiệm Bánh Mì
+      <span>ÔNG DŨNG</span>
+    </div>
+  </a>
+  <ul class="navbar-links">
+    <li><a href="/index.html">Trang chủ</a></li>
+    <li><a href="/gioi-thieu.html" class="active">Giới thiệu</a></li>
+    <li><a href="/san-pham.html">Thực đơn</a></li>
+    <li><a href="/" class="navbar-cta">Đặt hàng</a></li>
+  </ul>
+  <button class="hamburger" id="hamburgerBtn">☰</button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close-menu" id="closeMenuBtn">✕</button>
+  <a href="/index.html" onclick="closeMobileMenu()">Trang chủ</a>
+  <a href="/gioi-thieu.html" onclick="closeMobileMenu()">Giới thiệu</a>
+  <a href="/san-pham.html" onclick="closeMobileMenu()">Thực đơn</a>
+  <a href="/" class="mobile-order-btn" onclick="closeMobileMenu()">Đặt hàng ngay</a>
+</div>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-content">
+    <h1>Giới Thiệu</h1>
+    <p>Hành trình và sứ mệnh của Tiệm Bánh Mì Ông Dũng</p>
+  </div>
+</section>
+
+<!-- HISTORY -->
+<section class="section" id="history">
+  <div class="container">
+    <h2 class="section-title">Lịch Sử Hình Thành</h2>
+    <div class="section-title-underline"></div>
+
+    <div class="info-block">
+      <div class="info-img">🥖</div>
+      <div class="info-text">
+        <h3>Những năm đầu tiên (1995)</h3>
+        <p>Ông Dũng bắt đầu với chiếc xe đẩy nhỏ tại góc đường Nguyễn Huệ, Quận 1. Mỗi sáng sớm, ông tự tay nhào bột, nướng bánh mì giòn rụm và chuẩn bị nhân thịt theo công thức riêng.</p>
+      </div>
+    </div>
+
+    <div class="info-block reverse">
+      <div class="info-img">🏪</div>
+      <div class="info-text">
+        <h3>Phát triển thương hiệu (2005)</h3>
+        <p>Từ một xe đẩy, Ông Dũng mở tiệm đầu tiên tại Quận 1. Tiếng lành đồn xa, khách hàng xếp hàng từ sáng sớm. Con gái Ông Dũng tiếp quản và mang công thức gia truyền đến nhiều khách hàng hơn.</p>
+      </div>
+    </div>
+
+    <div class="info-block">
+      <div class="info-img">🚀</div>
+      <div class="info-text">
+        <h3>Hiện đại hóa (2024)</h3>
+        <p>Tiệm Bánh Mì Ông Dũng chính thức ra mắt hệ thống đặt hàng online, mang hương vị truyền thống đến tận tay bạn. Vẫn giữ nguyên công thức ba thế hệ, nhưng với trải nghiệm mua sắm hiện đại.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INGREDIENTS -->
+<section class="section" style="background:#fff;">
+  <div class="container">
+    <h2 class="section-title">Nguyên Liệu Chất Lượng</h2>
+    <div class="section-title-underline"></div>
+    <div class="ingredients-grid">
+      <div class="ingredient-card">
+        <div class="ingredient-img">🌾</div>
+        <div class="ingredient-info"><h4>Bột mì cao cấp</h4><p>Nhập khẩu từ Nhật Bản, tạo nên lớp vỏ giòn tan đặc trưng</p></div>
+      </div>
+      <div class="ingredient-card">
+        <div class="ingredient-img">🥩</div>
+        <div class="ingredient-info"><h4>Thịt heo tươi</h4><p>Từ trang trại đạt chuẩn VietGAP, giao mỗi sáng</p></div>
+      </div>
+      <div class="ingredient-card">
+        <div class="ingredient-img">🥚</div>
+        <div class="ingredient-info"><h4>Pate nhà làm</h4><p>Công thức bí mật gia truyền, xay nhuyễn tự nhiên</p></div>
+      </div>
+      <div class="ingredient-card">
+        <div class="ingredient-img">🥬</div>
+        <div class="ingredient-info"><h4>Rau sống hữu cơ</h4><p>Rau thơm, dưa leo, ớt từ vườn rau sạch Đà Lạt</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="section" id="mission">
+  <div class="container" style="text-align:center; max-width:800px;">
+    <h2 class="section-title">Sứ Mệnh Của Chúng Tôi</h2>
+    <div class="section-title-underline"></div>
+    <blockquote style="font-size:1.15rem; color:var(--text-muted); font-style:italic; line-height:1.8;">
+      "Mang hương vị bánh mì truyền thống Việt Nam đến mọi gia đình, với nguyên liệu tươi ngon nhất, phục vụ tận tâm nhất, và giá cả hợp lý nhất."
+    </blockquote>
+    <p style="margin-top:16px; font-weight:600; color:var(--primary);">— Ông Dũng, Người sáng lập</p>
+    <div class="stats-row">
+      <div class="stat"><div class="stat-number">30+</div><div class="stat-label">Năm kinh nghiệm</div></div>
+      <div class="stat"><div class="stat-number">10,000+</div><div class="stat-label">Khách hàng mỗi tháng</div></div>
+      <div class="stat"><div class="stat-number">6+</div><div class="stat-label">Loại bánh mì đặc biệt</div></div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <h4>Về chúng tôi</h4>
+      <ul>
+        <li><a href="/gioi-thieu.html">Giới thiệu</a></li>
+        <li><a href="/gioi-thieu.html#history">Lịch sử</a></li>
+        <li><a href="/gioi-thieu.html#mission">Sứ mệnh</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Sản phẩm</h4>
+      <ul>
+        <li><a href="/san-pham.html">Tất cả sản phẩm</a></li>
+        <li><a href="/san-pham.html">Bánh Mì Truyền Thống</a></li>
+        <li><a href="/san-pham.html">Bánh Mì Đặc Biệt</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Hỗ trợ</h4>
+      <ul>
+        <li><a href="/">Đặt hàng</a></li>
+        <li><a href="#">Chính sách đổi trả</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Liên hệ</h4>
+      <ul>
+        <li>📍 123 Nguyễn Huệ, Q.1, TP.HCM</li>
+        <li>📞 0909 123 456</li>
+        <li>✉️ lienhe@banhmidung.vn</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">&copy; 2026 Tiệm Bánh Mì Ông Dũng. Tất cả quyền được bảo lưu.</div>
+</footer>
+
+<script>
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const closeMenuBtn = document.getElementById('closeMenuBtn');
+  hamburgerBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
+  closeMenuBtn.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  function closeMobileMenu() { mobileMenu.classList.remove('open'); }
+
+  // Navbar scroll effect
+  window.addEventListener('scroll', () => {
+    const navbar = document.getElementById('navbar');
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+</script>
+</body>
+</html>

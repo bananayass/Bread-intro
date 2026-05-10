@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tiệm Bánh Mì Ông Dũng | Bánh Mì & Cà Phê Truyền Thống</title>
+  <meta name="description"
+    content="Tiệm Bánh Mì Ông Dũng - Hương vị truyền thống Việt Nam từ năm 1995. Bánh mì giòn rụm, cà phê đậm đà, không gian ấm cúng.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Playfair+Display:wght@700;900&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --primary: #c8231a;
+      --primary-dark: #a01a14;
+      --gold: #d4a017;
+      --gold-light: #e8c547;
+      --cream: #faf7f2;
+      --dark: #111111;
+      --text-dark: #1a1a1a;
+      --text-muted: #666666;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Be Vietnam Pro', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* ========== NAVBAR ========== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: linear-gradient(135deg, #c8231a 0%, #8b1510 100%);
+      backdrop-filter: blur(10px);
+      color: #fff;
+      padding: 0 40px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+      transition: all .4s ease;
+    }
+
+    .navbar.scrolled {
+      background: rgba(200, 35, 26, 0.95);
+      height: 64px;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .navbar-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .navbar-logo img {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      transition: all .3s;
+    }
+
+    .navbar-logo:hover img {
+      border-color: var(--gold);
+      transform: scale(1.05);
+    }
+
+    .navbar-logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .navbar-logo-text span {
+      font-size: 0.7rem;
+      font-family: 'Be Vietnam Pro', sans-serif;
+      font-weight: 400;
+      opacity: 0.8;
+      letter-spacing: 1px;
+    }
+
+    .navbar-divider {
+      width: 1px;
+      height: 36px;
+      background: rgba(255, 255, 255, 0.2);
+      margin: 0 8px;
+    }
+
+    .navbar-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+      align-items: center;
+    }
+
+    .navbar-links a {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      transition: all .3s;
+      position: relative;
+    }
+
+    .navbar-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: width .3s;
+    }
+
+    .navbar-links a:hover {
+      color: #fff;
+    }
+
+    .navbar-links a:hover::after {
+      width: 100%;
+    }
+
+    .navbar-cta {
+      background: var(--gold);
+      color: #fff !important;
+      font-weight: 600 !important;
+      padding: 10px 24px;
+      border-radius: 8px;
+      font-size: 0.875rem !important;
+      letter-spacing: 1px;
+      transition: all .3s !important;
+    }
+
+    .navbar-cta:hover {
+      background: #b8890f !important;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(212, 160, 23, 0.4);
+    }
+
+    .navbar-cta::after {
+      display: none !important;
+    }
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(135deg, #c8231a 0%, #8b1510 100%);
+      z-index: 2000;
+      flex-direction: column;
+      padding: 100px 40px 40px;
+      gap: 0;
+    }
+
+    .mobile-menu.open {
+      display: flex;
+    }
+
+    .mobile-menu a {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 1.2rem;
+      font-weight: 500;
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all .25s;
+    }
+
+    .mobile-menu a:hover {
+      color: var(--gold);
+      padding-left: 10px;
+    }
+
+    .mobile-order-btn {
+      margin-top: 32px;
+      background: var(--gold);
+      color: #fff;
+      font-weight: 700;
+      text-align: center;
+      padding: 16px;
+      border-radius: 10px;
+      border: none;
+      font-size: 1.1rem;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .close-menu {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    /* ========== HERO ========== */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #111111 0%, #2a1a0a 50%, #3d2410 100%);
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 70px;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(200, 35, 26, 0.15), transparent 60%);
+    }
+
+    .hero-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 60px;
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-content {
+      animation: fadeInUp 1s ease;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      border: 1.5px solid var(--gold);
+      color: var(--gold);
+      padding: 6px 16px;
+      border-radius: 4px;
+      margin-bottom: 24px;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.5rem, 8vw, 6rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 0.9;
+      margin-bottom: 8px;
+    }
+
+    .hero-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 24px;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: rgba(255, 255, 255, 0.7);
+      max-width: 480px;
+      line-height: 1.8;
+      margin-bottom: 40px;
+      font-weight: 300;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      border: none;
+      cursor: pointer;
+      transition: all .3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(200, 35, 26, 0.4);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      border: 1.5px solid rgba(255, 255, 255, 0.3);
+      cursor: pointer;
+      transition: all .3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      transform: translateY(-3px);
+    }
+
+    .hero-image {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-image img {
+      width: 100%;
+      max-width: 900px;
+      transition: transform .4s ease;
+      filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5));
+    }
+
+    .hero-image:hover img {
+      transform: scale(1.05);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 48px;
+      margin-top: 60px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--gold);
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.5);
+      margin-top: 4px;
+    }
+
+    /* ========== MARQUEE ========== */
+    .marquee-section {
+      background: var(--gold);
+      padding: 16px 0;
+      overflow: hidden;
+    }
+
+    .marquee-track {
+      display: flex;
+      gap: 60px;
+      animation: marquee 20s linear infinite;
+      white-space: nowrap;
+    }
+
+    .marquee-item {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--dark);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .marquee-item::after {
+      content: '★';
+      font-size: 0.8rem;
+    }
+
+    @keyframes marquee {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* ========== PRODUCTS PREVIEW ========== */
+    .products-preview {
+      padding: 100px 40px;
+      background: var(--cream);
+    }
+
+    .section-container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      color: var(--text-dark);
+      margin-bottom: 16px;
+    }
+
+    .section-line {
+      width: 60px;
+      height: 4px;
+      background: var(--primary);
+      margin: 0 auto;
+      border-radius: 2px;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      transition: all .4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      cursor: pointer;
+    }
+
+    .product-card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    }
+
+    .product-img {
+      width: 100%;
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .5s ease;
+    }
+
+    .product-card:hover .product-img img {
+      transform: scale(1.1);
+    }
+
+    .product-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+      opacity: 0;
+      transition: opacity .3s;
+    }
+
+    .product-card:hover .product-overlay {
+      opacity: 1;
+    }
+
+    .product-info {
+      padding: 24px;
+    }
+
+    .product-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+
+    .product-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .product-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .product-price {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .product-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: all .3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .product-btn:hover {
+      background: var(--primary-dark);
+      transform: scale(1.1);
+    }
+
+    /* ========== CTA BANNER ========== */
+    .cta-banner {
+      background: linear-gradient(135deg, #111111 0%, #2a1a0a 100%);
+      padding: 80px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(200, 35, 26, 0.2), transparent 60%);
+    }
+
+    .cta-content {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .cta-desc {
+      font-size: 1.05rem;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+
+    /* ========== FOOTER ========== */
+    .footer {
+      background: #0a0a0a;
+      color: rgba(255, 255, 255, 0.7);
+      padding: 80px 40px 32px;
+    }
+
+    .footer-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-brand .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer-brand .footer-logo img {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(200, 35, 26, 0.3);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .footer-brand .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .footer-logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .footer-logo-text span {
+      font-size: 0.7rem;
+      font-family: 'Be Vietnam Pro', sans-serif;
+      font-weight: 400;
+      opacity: 0.7;
+      letter-spacing: 1px;
+    }
+
+    .footer-brand p {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 24px;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 12px;
+    }
+
+    .footer-social a {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      transition: all .3s;
+    }
+
+    .footer-social a:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+      transform: translateY(-4px);
+    }
+
+    .footer-col h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-col h4::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 30px;
+      height: 2px;
+      background: var(--primary);
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 12px;
+    }
+
+    .footer-col ul li a {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.5);
+      transition: all .25s;
+      display: inline-block;
+    }
+
+    .footer-col ul li a:hover {
+      color: var(--gold);
+      transform: translateX(4px);
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 32px auto 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-bottom-links a {
+      color: rgba(255, 255, 255, 0.35);
+      font-size: 0.85rem;
+      transition: color .25s;
+    }
+
+    .footer-bottom-links a:hover {
+      color: var(--gold);
+    }
+
+    /* ========== ANIMATIONS ========== */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(-2deg);
+      }
+
+      50% {
+        transform: translateY(-20px) rotate(2deg);
+      }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all .8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 1024px) {
+      .hero-container {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        text-align: center;
+      }
+
+      .hero-content {
+        order: 2;
+      }
+
+      .hero-image {
+        order: 1;
+      }
+
+      .hero-desc {
+        margin: 0 auto 40px;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .hero-stats {
+        justify-content: center;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar-links {
+        display: none;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      .hero {
+        padding-top: 70px;
+      }
+
+      .hero-container {
+        padding: 0 24px;
+      }
+
+      .hero-stats {
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .products-preview,
+      .cta-banner,
+      .footer {
+        padding: 60px 24px 32px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <a href="/" class="navbar-logo">
+      <img src="/bmod.png" alt="Tiệm Bánh Mì Ông Dũng">
+      <div class="navbar-logo-text">
+        Tiệm Bánh Mì
+        <span>ÔNG DŨNG</span>
+      </div>
+    </a>
+    <ul class="navbar-links">
+      <li><a href="/" class="active">Trang chủ</a></li>
+      <li><a href="/gioi-thieu.html">Giới thiệu</a></li>
+      <li><a href="/san-pham.html">Thực đơn</a></li>
+      <li><a href="/san-pham.html" class="navbar-cta">Đặt hàng</a></li>
+    </ul>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Menu">☰</button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="close-menu" id="closeMenuBtn">✕</button>
+    <a href="/" onclick="closeMobileMenu()">Trang chủ</a>
+    <a href="/gioi-thieu.html" onclick="closeMobileMenu()">Giới thiệu</a>
+    <a href="/san-pham.html" onclick="closeMobileMenu()">Thực đơn</a>
+    <a href="/" class="mobile-order-btn" onclick="closeMobileMenu()">Đặt hàng ngay</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="hero-badge">★ Thương hiệu Việt Nam từ 1995</div>
+        <h1 class="hero-title">Bánh Mì</h1>
+        <p class="hero-subtitle">& Cà Phê Truyền Thống</p>
+        <p class="hero-desc">
+          Hương vị bánh mì Sài Gòn chính hiệu — vỏ giòn rụm, nhân thơm ngon, được làm tươi mỗi ngày. Cà phê rang xay mỗi
+          sáng, đậm đà hương vị Đắk Lắk.
+        </p>
+        <div class="hero-buttons">
+          <a href="/san-pham.html" class="btn-primary">Xem Thực Đơn →</a>
+          <a href="/gioi-thieu.html" class="btn-secondary">Câu Chuyện Của Chúng Tôi</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-number">30+</div>
+            <div class="stat-label">Năm kinh nghiệm</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">10K+</div>
+            <div class="stat-label">Khách hàng mỗi tháng</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">50+</div>
+            <div class="stat-label">Món ngon</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="/final.png" alt="Bánh Mì Ông Dũng">
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-section">
+    <div class="marquee-track">
+      <span class="marquee-item">Bánh Mì Truyền Thống</span>
+      <span class="marquee-item">Cà Phê Phin</span>
+      <span class="marquee-item">Bánh Bao Nhân Thịt</span>
+      <span class="marquee-item">Hamburger Việt Nam</span>
+      <span class="marquee-item">Trà Sen Vàng</span>
+      <span class="marquee-item">Bánh Ngọt Thủ Công</span>
+      <span class="marquee-item">Bánh Mì Truyền Thống</span>
+      <span class="marquee-item">Cà Phê Phin</span>
+      <span class="marquee-item">Bánh Bao Nhân Thịt</span>
+      <span class="marquee-item">Hamburger Việt Nam</span>
+      <span class="marquee-item">Trà Sen Vàng</span>
+      <span class="marquee-item">Bánh Ngọt Thủ Công</span>
+    </div>
+  </div>
+
+  <!-- PRODUCTS PREVIEW -->
+  <section class="products-preview">
+    <div class="section-container">
+      <div class="section-header fade-in">
+        <div class="section-badge">Thực Đơn Đặc Biệt</div>
+        <h2 class="section-title">Khám Phá Hương Vị</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="products-grid">
+        <div class="product-card fade-in">
+          <div class="product-img">
+            <img src="/banh-mi-a.png" alt="Bánh Mì">
+            <div class="product-overlay"></div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Bánh Mì Truyền Thống</h3>
+            <p class="product-desc">Vỏ bánh giòn rụm, nhân thịt tươi ngon, rau thơm và tương gia truyền.</p>
+            <div class="product-footer">
+              <span class="product-price">25.000đ</span>
+              <button class="product-btn">+</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-card fade-in">
+          <div class="product-img">
+            <img src="/burger.png" alt="Hamburger">
+            <div class="product-overlay"></div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Hamburger Việt</h3>
+            <p class="product-desc">Patty thịt bò juicy, phô mai tan chảy, rau xanh tươi mát.</p>
+            <div class="product-footer">
+              <span class="product-price">40.000đ</span>
+              <button class="product-btn">+</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-card fade-in">
+          <div class="product-img">
+            <img src="/banhbao-no-bg.png" alt="Bánh Bao">
+            <div class="product-overlay"></div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Bánh Bao Nhân Thịt</h3>
+            <p class="product-desc">Bột mì mềm xốp, nhân thịt heo đậm đà, trứng cút bổ dưỡng.</p>
+            <div class="product-footer">
+              <span class="product-price">18.000đ</span>
+              <button class="product-btn">+</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-card fade-in">
+          <div class="product-img">
+            <img src="/cf.png" alt="Cà Phê">
+            <div class="product-overlay"></div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Cà Phê Phin Đặc Sản</h3>
+            <p class="product-desc">Cà phê Robusta Đắk Lắk rang xay mỗi ngày, pha phin truyền thống.</p>
+            <div class="product-footer">
+              <span class="product-price">20.000đ</span>
+              <button class="product-btn">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 48px;" class="fade-in">
+        <a href="/san-pham.html" class="btn-primary">Xem Toàn Bộ Thực Đơn →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner">
+    <div class="cta-content fade-in">
+      <h2 class="cta-title">Mang Hương Vị Việt Đến Với Bạn</h2>
+      <p class="cta-desc">
+        Dù bạn đang tìm kiếm bữa sáng nhanh gọn hay một tách cà phê buổi sáng, Ông Dũng luôn sẵn sàng phục vụ với sự tận
+        tâm và chất lượng.
+      </p>
+      <a href="/san-pham.html" class="btn-primary">Khám Phá Ngay →</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="/bmod.png" alt="Tiệm Bánh Mì Ông Dũng">
+          <div class="footer-logo-text">
+            Tiệm Bánh Mì
+            <span>ÔNG DŨNG</span>
+          </div>
+        </div>
+        <p>Hương vị truyền thống Việt Nam từ năm 1995. Nguyên liệu tươi mới mỗi ngày, phục vụ tận tâm cho từng khách
+          hàng.</p>
+        <div class="footer-social">
+          <a href="/" title="Facebook">📘</a>
+          <a href="/" title="Instagram">📷</a>
+          <a href="/" title="YouTube">📺</a>
+          <a href="/" title="Zalo">💬</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Thực Đơn</h4>
+        <ul>
+          <li><a href="/san-pham.html">Bánh Mì</a></li>
+          <li><a href="/san-pham.html">Hamburger</a></li>
+          <li><a href="/san-pham.html">Bánh Bao</a></li>
+          <li><a href="/san-pham.html">Cà Phê</a></li>
+          <li><a href="/san-pham.html">Trà</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Cửa Hàng</h4>
+        <ul>
+          <li><a href="/gioi-thieu.html">Giới Thiệu</a></li>
+          <li><a href="/">Tin Tức</a></li>
+          <li><a href="/">Khuyến Mãi</a></li>
+          <li><a href="/">Tuyển Dụng</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Liên Hệ</h4>
+        <ul>
+          <li><a href="/">📍 123 Nguyễn Trãi, Q.1, TP.HCM</a></li>
+          <li><a href="/">📞 0901 234 567</a></li>
+          <li><a href="/">✉️ ongdung@banhmi.vn</a></li>
+          <li><a href="/">🕐 6:00 - 22:00 mỗi ngày</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Tiệm Bánh Mì Ông Dũng. Mọi quyền được bảo lưu.</p>
+      <div class="footer-bottom-links">
+        <a href="/">Chính sách bảo mật</a>
+        <a href="/">Điều khoản sử dụng</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile Menu
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const closeMenuBtn = document.getElementById('closeMenuBtn');
+    hamburgerBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
+    closeMenuBtn.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    function closeMobileMenu() { mobileMenu.classList.remove('open'); }
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Scroll animations
+    const fadeElements = document.querySelectorAll('.fade-in');
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15 });
+    fadeElements.forEach(el => fadeObserver.observe(el));
+  </script>
+
+</body>
+
+</html>

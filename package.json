@@ -1,0 +1,8 @@
+{
+  "name": "banhmi-html",
+  "version": "1.0.0",
+  "description": "Tiệm Bánh Mì Ông Dũng - Static HTML marketing pages",
+  "scripts": {
+    "start": "npx serve public -p 3001"
+  }
+}
