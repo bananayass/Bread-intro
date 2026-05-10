@@ -1,0 +1,301 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  .bm-root {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    background: #1a1008;
+    color: #fff;
+    overflow: hidden;
+    border-radius: 0;
+  }
+
+  .section {
+    display: flex;
+    min-height: 380px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .section.dark {
+    background: #1a1008;
+  }
+
+  .section.light {
+    background: #f5ede0;
+  }
+
+  .text-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3rem 3rem 3rem 3.5rem;
+    z-index: 2;
+    position: relative;
+  }
+
+  .img-col {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    min-height: 340px;
+  }
+
+  .img-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 7rem;
+    position: relative;
+  }
+
+  .img-placeholder::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 40%, rgba(26,16,8,0.6) 100%);
+  }
+
+  .section.light .img-placeholder::after {
+    background: radial-gradient(ellipse at center, transparent 40%, rgba(245,237,224,0.5) 100%);
+  }
+
+  .badge {
+    display: inline-block;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    border: 1px solid #c8941a;
+    color: #c8941a;
+    padding: 4px 12px;
+    border-radius: 2px;
+    margin-bottom: 1rem;
+  }
+
+  .section.light .badge {
+    border-color: #8b4513;
+    color: #8b4513;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 1.2rem;
+    color: #fff;
+  }
+
+  .section.light .section-title {
+    color: #1a1008;
+  }
+
+  .section-desc {
+    font-size: 0.92rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.72);
+    max-width: 340px;
+    margin-bottom: 2rem;
+    font-weight: 300;
+  }
+
+  .section.light .section-desc {
+    color: #4a3020;
+  }
+
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 1.5px solid #c8941a;
+    color: #c8941a;
+    background: transparent;
+    padding: 12px 28px;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all 0.25s;
+  }
+
+  .cta-btn:hover {
+    background: #c8941a;
+    color: #1a1008;
+  }
+
+  .section.light .cta-btn {
+    border-color: #8b4513;
+    color: #8b4513;
+  }
+
+  .section.light .cta-btn:hover {
+    background: #8b4513;
+    color: #fff;
+  }
+
+  .accent-line {
+    width: 48px;
+    height: 2px;
+    background: #c8941a;
+    margin-bottom: 1.2rem;
+  }
+
+  .section.light .accent-line {
+    background: #8b4513;
+  }
+
+  .food-emoji {
+    font-size: 9rem;
+    filter: drop-shadow(0 8px 24px rgba(0,0,0,0.45));
+    animation: float 3.5s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(-3deg); }
+    50% { transform: translateY(-12px) rotate(3deg); }
+  }
+
+  .food-emoji-2 {
+    animation-delay: 1.2s;
+    animation-duration: 4s;
+  }
+
+  .divider {
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #c8941a 0%, #e8b84b 50%, #c8941a 100%);
+  }
+
+  .overlay-text {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    font-weight: 900;
+    opacity: 0.06;
+    color: #c8941a;
+    line-height: 1;
+    z-index: 1;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  .tag-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    background: rgba(200,148,26,0.15);
+    color: #c8941a;
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+
+  .section.light .tag {
+    background: rgba(139,69,19,0.12);
+    color: #8b4513;
+  }
+
+  .section.right-img .text-col { order: 2; padding: 3rem 3.5rem 3rem 3rem; }
+  .section.right-img .img-col { order: 1; }
+</style>
+
+<div class="bm-root">
+
+  <div class="section dark">
+    <div class="text-col">
+      <div class="badge">Thương hiệu Việt Nam</div>
+      <div class="accent-line"></div>
+      <h2 class="section-title">BÁNH MÌ</h2>
+      <div class="tag-row">
+        <span class="tag">Giòn rụm</span>
+        <span class="tag">Đậm đà</span>
+        <span class="tag">Tươi mới</span>
+      </div>
+      <p class="section-desc">
+        Sự kết hợp hoàn hảo giữa vỏ bánh mì giòn rụm trứ danh với nhân thịt tươi ngon, rau thơm, và tương gia truyền — Bánh Mì Việt Nam mang đến trải nghiệm ẩm thực đường phố chân thực và tinh tế nhất.
+      </p>
+      <button class="cta-btn" onclick="sendPrompt('Tôi muốn xem thực đơn bánh mì đặc sản')">
+        KHÁM PHÁ THỰC ĐƠN →
+      </button>
+    </div>
+    <div class="img-col">
+      <div class="img-placeholder">
+        <span class="food-emoji">🥖</span>
+      </div>
+      <div class="overlay-text">BÁNH MÌ</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section light right-img">
+    <div class="text-col">
+      <div class="badge">Đặc Sản Truyền Thống</div>
+      <div class="accent-line"></div>
+      <h2 class="section-title">NHÂN BÁO</h2>
+      <div class="tag-row">
+        <span class="tag">Thịt tươi</span>
+        <span class="tag">Pate thơm</span>
+        <span class="tag">Rau sạch</span>
+      </div>
+      <p class="section-desc">
+        Pate thơm béo, chả lụa mềm mịn, dưa cải muối chua giòn, rau ngò thơm mát — mỗi chiếc bánh là một tác phẩm ẩm thực được làm với tâm huyết và tình yêu dành cho ẩm thực Việt.
+      </p>
+      <button class="cta-btn" onclick="sendPrompt('Tôi muốn đặt hàng bánh mì online')">
+        ĐẶT HÀNG NGAY →
+      </button>
+    </div>
+    <div class="img-col">
+      <div class="img-placeholder" style="background: #f5ede0;">
+        <span class="food-emoji food-emoji-2">🥪</span>
+      </div>
+      <div class="overlay-text" style="color: #8b4513;">NHÂN</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section dark">
+    <div class="text-col">
+      <div class="badge">Giải Khát</div>
+      <div class="accent-line"></div>
+      <h2 class="section-title">ĐỒ UỐNG</h2>
+      <div class="tag-row">
+        <span class="tag">Cà phê sữa đá</span>
+        <span class="tag">Nước chanh</span>
+        <span class="tag">Trà đá</span>
+      </div>
+      <p class="section-desc">
+        Thưởng thức bánh mì cùng ly cà phê sữa đá Việt truyền thống hay nước chanh tươi mát — bữa sáng hoàn hảo cho một ngày năng động và tràn đầy năng lượng.
+      </p>
+      <button class="cta-btn" onclick="sendPrompt('Tôi muốn xem menu đồ uống đi kèm bánh mì')">
+        XEM THÊM →
+      </button>
+    </div>
+    <div class="img-col">
+      <div class="img-placeholder">
+        <span class="food-emoji" style="animation-delay:0.7s;">☕</span>
+      </div>
+      <div class="overlay-text">UỐNG</div>
+    </div>
+  </div>
+
+</div>

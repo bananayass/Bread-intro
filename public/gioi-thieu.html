@@ -1,256 +1,1354 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Giới Thiệu | Tiệm Bánh Mì Ông Dũng</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;900&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
   <style>
     :root {
-      --primary: #b11212; --primary-dark: #8c0f0f; --primary-darker: #a50909;
-      --secondary: #d4a017; --cream: #faf7f2; --text-dark: #1a1a1a; --text-muted: #666; --border: #e5e0d8;
+      --primary: #c8231a;
+      --primary-dark: #8b1510;
+      --primary-darker: #6b1010;
+      --secondary: #d4a017;
+      --secondary-light: #e8c547;
+      --cream: #faf7f2;
+      --cream-dark: #f0ebe3;
+      --dark: #111111;
+      --text-dark: #1a1a1a;
+      --text-muted: #666666;
+      --text-light: #999999;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+      --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.12);
+      --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.16);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Be Vietnam Pro', sans-serif; background: var(--cream); color: var(--text-dark); line-height: 1.6; }
-    a { text-decoration: none; color: inherit; }
-    .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: linear-gradient(135deg, #c8231a 0%, #8b1510 100%); backdrop-filter: blur(10px); color: #fff; padding: 0 40px; height: 80px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3); transition: all .4s ease; }
-    .navbar.scrolled { background: rgba(200, 35, 26, 0.95); height: 64px; box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3); }
-    .navbar-logo { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 900; color: #fff; display: flex; align-items: center; gap: 14px; text-decoration: none; }
-    .navbar-logo img { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 3px solid rgba(255, 255, 255, 0.3); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); transition: all .3s; }
-    .navbar-logo:hover img { border-color: #d4a017; transform: scale(1.05); }
-    .navbar-logo-text { display: flex; flex-direction: column; line-height: 1.2; }
-    .navbar-logo-text span { font-size: 0.7rem; font-family: 'Be Vietnam Pro', sans-serif; font-weight: 400; opacity: 0.8; letter-spacing: 1px; }
-    .navbar-links { display: flex; gap: 32px; list-style: none; }
-    .navbar-links a { color: rgba(255,255,255,.85); font-size: .9rem; font-weight: 500; transition: color .2s; }
-    .navbar-links a:hover, .navbar-links a.active { color: var(--secondary); }
-    .navbar-cta { background: var(--secondary); color: #fff !important; font-weight: 600; padding: 8px 20px; border-radius: 6px; font-size: .875rem !important; transition: background .2s !important; }
-    .navbar-cta:hover { background: #b8890f !important; }
-    .hamburger { display: none; background: none; border: none; color: #fff; cursor: pointer; padding: 4px; font-size: 1.5rem; }
-    .mobile-menu { display: none; position: fixed; inset: 0; background: linear-gradient(135deg, #c8231a 0%, #8b1510 100%); z-index: 200; flex-direction: column; padding: 100px 40px 40px; gap: 8px; }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a { color: rgba(255,255,255,.85); font-size: 1.1rem; font-weight: 500; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.1); transition: all .25s; }
-    .mobile-order-btn { margin-top: 24px; background: #d4a017; color: #fff; font-weight: 700; text-align: center; padding: 14px; border-radius: 8px; border: none; font-size: 1rem; cursor: pointer; }
-    .close-menu { position: absolute; top: 20px; right: 20px; background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; }
 
-    .page-hero { background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-darker) 100%); min-height: 40vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 100px 24px 60px; position: relative; }
-    .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 70% 50%, rgba(212,160,23,.1) 0%, transparent 60%); }
-    .page-hero-content { position: relative; z-index: 1; }
-    .page-hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; color: #fff; margin-bottom: 12px; }
-    .page-hero p { color: rgba(255,255,255,.7); max-width: 500px; margin: 0 auto; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    .section { padding: 72px 24px; }
-    .container { max-width: 1100px; margin: 0 auto; }
-    .section-title { text-align: center; font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 700; color: var(--text-dark); margin-bottom: 8px; }
-    .section-title-underline { width: 60px; height: 4px; background: var(--primary); border-radius: 2px; margin: 8px auto 48px; }
+    body {
+      font-family: 'Be Vietnam Pro', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-    .info-block { display: flex; gap: 48px; align-items: center; margin-bottom: 64px; }
-    .info-block.reverse { flex-direction: row-reverse; }
-    .info-img { flex: 0 0 45%; aspect-ratio: 4/3; border-radius: 12px; overflow: hidden; background: linear-gradient(135deg, rgba(177,18,18,.2), rgba(212,160,23,.2)); display: flex; align-items: center; justify-content: center; font-size: 4rem; }
-    .info-text { flex: 1; }
-    .info-text h3 { font-size: 1.5rem; font-weight: 700; color: var(--text-dark); margin-bottom: 12px; }
-    .info-text p { color: var(--text-muted); line-height: 1.7; }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-    .ingredients-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
-    .ingredient-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
-    .ingredient-img { width: 100%; aspect-ratio: 1; background: linear-gradient(135deg, rgba(177,18,18,.15), rgba(212,160,23,.15)); display: flex; align-items: center; justify-content: center; font-size: 3rem; }
-    .ingredient-info { padding: 16px; }
-    .ingredient-info h4 { font-size: 1rem; font-weight: 700; color: var(--text-dark); margin-bottom: 6px; }
-    .ingredient-info p { font-size: .85rem; color: var(--text-muted); }
+    /* ===== NAVBAR ===== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      backdrop-filter: blur(10px);
+      color: #fff;
+      padding: 0 40px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: var(--shadow-md);
+      transition: all .4s ease;
+    }
 
-    .stats-row { display: flex; justify-content: center; gap: 64px; margin-top: 48px; flex-wrap: wrap; }
-    .stat { text-align: center; }
-    .stat-number { font-size: 2.5rem; font-weight: 700; color: var(--primary); }
-    .stat-label { font-size: .875rem; color: var(--text-muted); margin-top: 4px; }
+    .navbar.scrolled {
+      background: rgba(200, 35, 26, 0.95);
+      height: 64px;
+    }
 
-    .footer { background: var(--primary-darker); color: rgba(255,255,255,.7); padding: 56px 24px 24px; }
-    .footer-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,.15); }
-    .footer h4 { font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--secondary); margin-bottom: 16px; }
-    .footer ul { list-style: none; }
-    .footer ul li { margin-bottom: 10px; }
-    .footer ul li a { font-size: .875rem; color: rgba(255,255,255,.65); transition: color .2s; }
-    .footer ul li a:hover { color: #fff; }
-    .footer-bottom { max-width: 1100px; margin: 0 auto; padding-top: 24px; text-align: center; font-size: .8rem; color: rgba(255,255,255,.4); }
+    .navbar-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      cursor: pointer;
+    }
 
+    .navbar-logo img {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      box-shadow: var(--shadow-sm);
+      transition: all .3s;
+    }
+
+    .navbar-logo:hover img {
+      border-color: var(--secondary);
+      transform: scale(1.05);
+    }
+
+    .navbar-logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .navbar-logo-text span {
+      font-size: 0.7rem;
+      font-weight: 400;
+      opacity: 0.8;
+      letter-spacing: 1px;
+    }
+
+    .navbar-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .navbar-links a {
+      color: rgba(255, 255, 255, .85);
+      font-size: .9rem;
+      font-weight: 500;
+      transition: color .2s;
+      cursor: pointer;
+    }
+
+    .navbar-links a:hover,
+    .navbar-links a.active {
+      color: var(--secondary);
+    }
+
+    .navbar-cta {
+      background: var(--secondary);
+      color: #fff !important;
+      font-weight: 600;
+      padding: 10px 24px;
+      border-radius: var(--radius-sm);
+      font-size: .875rem !important;
+      transition: all .2s !important;
+      cursor: pointer;
+    }
+
+    .navbar-cta:hover {
+      background: #b8890f !important;
+      transform: translateY(-2px);
+    }
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      padding: 4px;
+      font-size: 1.5rem;
+    }
+
+    /* ===== MOBILE MENU ===== */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      z-index: 2000;
+      flex-direction: column;
+      padding: 100px 40px 40px;
+      gap: 8px;
+    }
+
+    .mobile-menu.open {
+      display: flex;
+    }
+
+    .mobile-menu a {
+      color: rgba(255, 255, 255, .85);
+      font-size: 1.1rem;
+      font-weight: 500;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, .1);
+      transition: all .25s;
+      cursor: pointer;
+    }
+
+    .mobile-menu a:hover {
+      color: var(--secondary);
+      padding-left: 10px;
+    }
+
+    .mobile-order-btn {
+      margin-top: 24px;
+      background: var(--secondary);
+      color: #fff;
+      font-weight: 700;
+      text-align: center;
+      padding: 14px;
+      border-radius: var(--radius-sm);
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .close-menu {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* ===== REVEAL ANIMATIONS ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.8);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal-scale.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .reveal,
+      .reveal-left,
+      .reveal-right,
+      .reveal-scale {
+        transition: opacity 0.3s ease;
+        transform: none !important;
+      }
+    }
+
+    /* ===== HERO SECTION ===== */
+    .page-hero {
+      background: linear-gradient(135deg, var(--dark) 0%, var(--primary-dark) 100%);
+      min-height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 30%, rgba(212, 160, 23, .15) 0%, transparent 50%);
+    }
+
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      height: 80px;
+      background: linear-gradient(to top, var(--cream), transparent);
+    }
+
+    .page-hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+    }
+
+    .page-hero-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--secondary);
+      border: 1.5px solid var(--secondary);
+      padding: 6px 16px;
+      border-radius: 4px;
+      margin-bottom: 24px;
+    }
+
+    .page-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 16px;
+      line-height: 1.1;
+    }
+
+    .page-hero p {
+      color: rgba(255, 255, 255, .7);
+      font-size: 1.1rem;
+      max-width: 500px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ===== SECTIONS ===== */
+    .section {
+      padding: 80px 24px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 16px;
+    }
+
+    .section-line {
+      width: 60px;
+      height: 4px;
+      background: var(--primary);
+      margin: 0 auto;
+      border-radius: 2px;
+    }
+
+    /* ===== TIMELINE SECTION ===== */
+    .timeline-section {
+      background: var(--cream);
+    }
+
+    .timeline {
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+      padding: 40px 0;
+    }
+
+    .timeline-line {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--primary), var(--secondary));
+      border-radius: 3px;
+      transform: translateX(-50%);
+      z-index: 1;
+    }
+
+    .timeline-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 48px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .timeline-item:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 18px;
+      height: 18px;
+      background: var(--secondary);
+      border: 4px solid #fff;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      z-index: 3;
+    }
+
+    .timeline-content {
+      flex: 1;
+      text-align: left;
+      min-width: 0;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content {
+      padding-right: 60px;
+    }
+
+    .timeline-item:nth-child(even) .timeline-content {
+      padding-left: 60px;
+    }
+
+    .timeline-content h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+    }
+
+    .timeline-content p {
+      color: var(--text-muted);
+      line-height: 1.7;
+      font-size: .95rem;
+    }
+
+    .timeline-separator {
+      flex: 0 0 40px;
+      min-height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .timeline-separator::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--primary), var(--secondary));
+      border-radius: 3px;
+      transform: translateX(-50%);
+    }
+
+    .timeline-separator::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 16px;
+      height: 16px;
+      background: var(--secondary);
+      border: 4px solid #fff;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      z-index: 2;
+    }
+
+    .timeline-image-wrapper {
+      flex: 0 0 45%;
+      position: relative;
+      padding: 0 20px;
+    }
+
+    .timeline-image-wrapper img {
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+    }
+
+    .timeline-year {
+      position: absolute;
+      bottom: -12px;
+      right: -12px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--primary);
+      padding: 8px 20px;
+      border-radius: 20px;
+      border: 3px solid var(--cream);
+    }
+
+    .timeline-item:nth-child(even) .timeline-year {
+      right: auto;
+      left: -12px;
+    }
+
+    .timeline-node {
+      flex: 0 0 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .timeline-icon-wrap {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #fff;
+      border: 4px solid var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+
+    .timeline-item:hover .timeline-icon-wrap {
+      transform: scale(1.1);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .timeline-node-label {
+      margin-top: 12px;
+      font-family: 'Playfair Display', serif;
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--primary);
+      background: var(--cream);
+      padding: 6px 16px;
+      border-radius: 20px;
+      border: 2px solid var(--primary);
+      white-space: nowrap;
+    }
+
+    /* ===== INGREDIENTS SECTION ===== */
+    .ingredients-section {
+      background: #fff;
+    }
+
+    .ingredients-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 32px;
+    }
+
+    .ingredient-card {
+      background: var(--cream);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: all .4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      cursor: pointer;
+    }
+
+    .ingredient-card:hover {
+      transform: translateY(-12px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .ingredient-card:hover .ingredient-icon {
+      transform: scale(1.1) rotate(-5deg);
+    }
+
+    .ingredient-icon {
+      width: 100%;
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      transition: transform .4s ease;
+    }
+
+    .ingredient-icon.icon-flour {
+      background: linear-gradient(135deg, #f5e6d3, #e8d5c4);
+    }
+
+    .ingredient-icon.icon-meat {
+      background: linear-gradient(135deg, #fce4e4, #f5d5d5);
+    }
+
+    .ingredient-icon.icon-pate {
+      background: linear-gradient(135deg, #f5e8d3, #e8dcc4);
+    }
+
+    .ingredient-icon.icon-vegetable {
+      background: linear-gradient(135deg, #e8f5e8, #d5ecd5);
+    }
+
+    .ingredient-info {
+      padding: 24px;
+    }
+
+    .ingredient-info h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+
+    .ingredient-info p {
+      font-size: .9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ===== MISSION SECTION ===== */
+    .mission-section {
+      background: linear-gradient(135deg, var(--dark) 0%, var(--primary-dark) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mission-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(212, 160, 23, .1) 0%, transparent 50%);
+    }
+
+    .mission-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .mission-content .section-title {
+      color: #fff;
+    }
+
+    .mission-content .section-line {
+      background: var(--secondary);
+    }
+
+    .mission-quote {
+      font-size: 1.3rem;
+      color: rgba(255, 255, 255, .85);
+      font-style: italic;
+      line-height: 1.9;
+      margin-bottom: 24px;
+      padding: 0 20px;
+    }
+
+    .mission-author {
+      color: var(--secondary);
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 48px;
+    }
+
+    .stats-row {
+      display: flex;
+      justify-content: center;
+      gap: 64px;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--secondary);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: .9rem;
+      color: rgba(255, 255, 255, .6);
+      margin-top: 8px;
+    }
+
+    /* ===== VALUES SECTION ===== */
+    .values-section {
+      background: var(--cream);
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+    }
+
+    .value-card {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      padding: 40px 32px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: all .3s ease;
+    }
+
+    .value-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .value-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 24px;
+      background: linear-gradient(135deg, rgba(200, 35, 26, .1), rgba(212, 160, 23, .1));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+    }
+
+    .value-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+    }
+
+    .value-card p {
+      color: var(--text-muted);
+      font-size: .95rem;
+      line-height: 1.6;
+    }
+
+    /* ===== CTA SECTION ===== */
+    .cta-section {
+      background: var(--secondary);
+      padding: 80px 24px;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 16px;
+    }
+
+    .cta-section p {
+      color: rgba(17, 17, 17, .7);
+      font-size: 1.05rem;
+      margin-bottom: 32px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 14px 36px;
+      border-radius: var(--radius-sm);
+      transition: all .3s ease;
+      cursor: pointer;
+    }
+
+    .cta-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--dark);
+      color: rgba(255, 255, 255, .7);
+      padding: 80px 24px 32px;
+    }
+
+    .footer-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255, 255, 255, .1);
+    }
+
+    .footer-brand .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer-logo img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .footer-brand p {
+      font-size: .9rem;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, .5);
+      margin-bottom: 24px;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 12px;
+    }
+
+    .footer-social a {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .08);
+      border: 1px solid rgba(255, 255, 255, .1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      transition: all .3s ease;
+      cursor: pointer;
+    }
+
+    .footer-social a:hover {
+      background: var(--primary);
+      transform: translateY(-4px);
+    }
+
+    .footer-col h4 {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--secondary);
+      margin-bottom: 20px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 12px;
+    }
+
+    .footer-col ul li a {
+      font-size: .9rem;
+      color: rgba(255, 255, 255, .55);
+      transition: color .25s ease;
+      cursor: pointer;
+    }
+
+    .footer-col ul li a:hover {
+      color: var(--secondary);
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 32px auto 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: .85rem;
+      color: rgba(255, 255, 255, .35);
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-bottom-links a {
+      color: rgba(255, 255, 255, .35);
+      transition: color .25s;
+      cursor: pointer;
+    }
+
+    .footer-bottom-links a:hover {
+      color: var(--secondary);
+    }
+
+    /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
-      .navbar-links { display: none; }
-      .hamburger { display: block; }
-      .mobile-menu { display: none; position: fixed; inset: 0; background: linear-gradient(135deg, #c8231a 0%, #8b1510 100%); z-index: 200; flex-direction: column; padding: 100px 40px 40px; gap: 8px; }
-      .mobile-menu.open { display: flex; }
-      .mobile-menu a { color: rgba(255,255,255,.85); font-size: 1.1rem; font-weight: 500; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.1); transition: all .25s; }
-      .mobile-order-btn { margin-top: 24px; background: #d4a017; color: #fff; font-weight: 700; text-align: center; padding: 14px; border-radius: 8px; border: none; font-size: 1rem; cursor: pointer; }
-      .close-menu { position: absolute; top: 20px; right: 20px; background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; }
-      .info-block { flex-direction: column !important; gap: 24px; }
-      .info-img { flex: none; width: 100%; }
-      .stats-row { gap: 32px; }
-      .page-hero { padding: 100px 24px 60px; }
+      .navbar-links {
+        display: none;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      .page-hero {
+        min-height: 40vh;
+        padding: 100px 24px 60px;
+      }
+
+      .page-hero h1 {
+        font-size: 2rem;
+      }
+
+      .timeline-line {
+        display: none;
+      }
+
+      .timeline-item {
+        flex-direction: column !important;
+        gap: 24px;
+        align-items: center;
+      }
+
+      .timeline-item::before {
+        display: none;
+      }
+
+      .timeline-item:nth-child(odd) .timeline-content,
+      .timeline-item:nth-child(even) .timeline-content {
+        padding: 0;
+        text-align: center;
+      }
+
+      .timeline-image-wrapper {
+        flex: none;
+        width: 100%;
+        max-width: 400px;
+        padding: 0;
+      }
+
+      .timeline-image-wrapper img {
+        max-width: 100%;
+      }
+
+      .timeline-year {
+        right: -8px;
+      }
+
+      .timeline-item:nth-child(even) .timeline-year {
+        right: auto;
+        left: -8px;
+      }
+
+      .stats-row {
+        gap: 32px;
+      }
+
+      .stat-number {
+        font-size: 2.5rem;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
     }
   </style>
 </head>
+
 <body>
 
-<nav class="navbar" id="navbar">
-  <a href="/index.html" class="navbar-logo">
-    <img src="/images/bmod.png" alt="Tiệm Bánh Mì Ông Dũng">
-    <div class="navbar-logo-text">
-      Tiệm Bánh Mì
-      <span>ÔNG DŨNG</span>
-    </div>
-  </a>
-  <ul class="navbar-links">
-    <li><a href="/index.html">Trang chủ</a></li>
-    <li><a href="/gioi-thieu.html" class="active">Giới thiệu</a></li>
-    <li><a href="/san-pham.html">Thực đơn</a></li>
-    <li><a href="/" class="navbar-cta">Đặt hàng</a></li>
-  </ul>
-  <button class="hamburger" id="hamburgerBtn">☰</button>
-</nav>
+  <nav class="navbar" id="navbar">
+    <a href="/index.html" class="navbar-logo">
+      <img src="/images/bmod.png" alt="Tiệm Bánh Mì Ông Dũng">
+      <div class="navbar-logo-text">
+        Tiệm Bánh Mì
+        <span>ÔNG DŨNG</span>
+      </div>
+    </a>
+    <ul class="navbar-links">
+      <li><a href="/index.html">Trang chủ</a></li>
+      <li><a href="/gioi-thieu.html" class="active">Giới thiệu</a></li>
+      <li><a href="/san-pham.html">Thực đơn</a></li>
+      <li><a href="/" class="navbar-cta">Đặt hàng</a></li>
+    </ul>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Menu">☰</button>
+  </nav>
 
-<div class="mobile-menu" id="mobileMenu">
-  <button class="close-menu" id="closeMenuBtn">✕</button>
-  <a href="/index.html" onclick="closeMobileMenu()">Trang chủ</a>
-  <a href="/gioi-thieu.html" onclick="closeMobileMenu()">Giới thiệu</a>
-  <a href="/san-pham.html" onclick="closeMobileMenu()">Thực đơn</a>
-  <a href="/" class="mobile-order-btn" onclick="closeMobileMenu()">Đặt hàng ngay</a>
-</div>
-
-<!-- HERO -->
-<section class="page-hero">
-  <div class="page-hero-content">
-    <h1>Giới Thiệu</h1>
-    <p>Hành trình và sứ mệnh của Tiệm Bánh Mì Ông Dũng</p>
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="close-menu" id="closeMenuBtn" aria-label="Close">✕</button>
+    <a href="/index.html" onclick="closeMobileMenu()">Trang chủ</a>
+    <a href="/gioi-thieu.html" onclick="closeMobileMenu()">Giới thiệu</a>
+    <a href="/san-pham.html" onclick="closeMobileMenu()">Thực đơn</a>
+    <a href="/" class="mobile-order-btn" onclick="closeMobileMenu()">Đặt hàng ngay</a>
   </div>
-</section>
 
-<!-- HISTORY -->
-<section class="section" id="history">
-  <div class="container">
-    <h2 class="section-title">Lịch Sử Hình Thành</h2>
-    <div class="section-title-underline"></div>
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="page-hero-content reveal">
+      <div class="page-hero-badge">★ Từ năm 1995</div>
+      <h1>Câu Chuyện Của Chúng Tôi</h1>
+      <p>Hành trình xây dựng thương hiệu bánh mì truyền thống Việt Nam — giữ vững hương vị ba thế hệ</p>
+    </div>
+  </section>
 
-    <div class="info-block">
-      <div class="info-img">🥖</div>
-      <div class="info-text">
-        <h3>Những năm đầu tiên (1995)</h3>
-        <p>Ông Dũng bắt đầu với chiếc xe đẩy nhỏ tại góc đường Nguyễn Huệ, Quận 1. Mỗi sáng sớm, ông tự tay nhào bột, nướng bánh mì giòn rụm và chuẩn bị nhân thịt theo công thức riêng.</p>
+  <!-- TIMELINE -->
+  <section class="section timeline-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-badge">Lịch Sử</div>
+        <h2 class="section-title">Hành Trình Phát Triển</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-line"></div>
+        <div class="timeline-item reveal-left">
+          <div class="timeline-content">
+            <h3>Khởi Đầu Từ Chiếc Xe Đẩy</h3>
+            <p>Ông Dũng bắt đầu với chiếc xe đẩy nhỏ tại góc đường Nguyễn Huệ, Quận 1. Mỗi sáng sớm, ông tự tay nhào
+              bột, nướng bánh mì giòn rụm và chuẩn bị nhân thịt theo công thức riêng. Tay nghề được rèn luyện qua hàng
+              nghìn cuộn bánh mỗi tháng.</p>
+          </div>
+          <div class="timeline-image-wrapper">
+            <img src="/images/banbanhmi.png" alt="Bánh mì truyền thống">
+            <div class="timeline-year">1995</div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal-right">
+          <div class="timeline-content">
+            <h3>Mở Tiệm Đầu Tiên</h3>
+            <p>Từ một xe đẩy, Ông Dũng mở tiệm đầu tiên tại Quận 1. Tiếng lành đồn xa, khách hàng xếp hàng từ sáng sớm.
+              Con gái Ông Dũng tiếp quản và mang công thức gia truyền đến nhiều khách hàng hơn.</p>
+          </div>
+          <div class="timeline-image-wrapper">
+            <img src="/images/cuahang.png" alt="Tiệm bánh mì đầu tiên">
+            <div class="timeline-year">2005</div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal-left">
+          <div class="timeline-content">
+            <h3>Hiện Đại Hóa</h3>
+            <p>Tiệm Bánh Mì Ông Dũng chính thức ra mắt hệ thống đặt hàng online, mang hương vị truyền thống đến tận tay
+              bạn. Vẫn giữ nguyên công thức ba thế hệ, nhưng với trải nghiệm mua sắm hiện đại.</p>
+          </div>
+          <div class="timeline-image-wrapper">
+            <img src="/images/onl.png" alt="Đặt hàng online">
+            <div class="timeline-year">2024</div>
+          </div>
+        </div>
       </div>
     </div>
+  </section>
 
-    <div class="info-block reverse">
-      <div class="info-img">🏪</div>
-      <div class="info-text">
-        <h3>Phát triển thương hiệu (2005)</h3>
-        <p>Từ một xe đẩy, Ông Dũng mở tiệm đầu tiên tại Quận 1. Tiếng lành đồn xa, khách hàng xếp hàng từ sáng sớm. Con gái Ông Dũng tiếp quản và mang công thức gia truyền đến nhiều khách hàng hơn.</p>
+  <!-- INGREDIENTS -->
+  <section class="section ingredients-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-badge">Nguyên Liệu</div>
+        <h2 class="section-title">Chất Lượng Được Đảm Bảo</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="ingredients-grid">
+        <div class="ingredient-card reveal">
+          <div class="ingredient-icon icon-flour">
+            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#b11212" stroke-width="1.5">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+            </svg>
+          </div>
+          <div class="ingredient-info">
+            <h4>Bột Mì Cao Cấp</h4>
+            <p>Nhập khẩu từ Nhật Bản, tạo nên lớp vỏ giòn tan đặc trưng mà chỉ Ông Dũng mới có.</p>
+          </div>
+        </div>
+
+        <div class="ingredient-card reveal">
+          <div class="ingredient-icon icon-meat">
+            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#b11212" stroke-width="1.5">
+              <path
+                d="M15.5 2c2 0 4 1.5 4 4v1c0 1-.5 2-2 2.5M8.5 2C6.5 2 5 3.5 5 6v1c0 1 .5 2 2 2.5M5 7.5c-1.5 1-2 3-2 5 0 2.5 2 5 7 10 5-5 7-7.5 7-10 0-2-.5-4-2-5" />
+              <path d="M12 22V12" />
+            </svg>
+          </div>
+          <div class="ingredient-info">
+            <h4>Thịt Heo Tươi</h4>
+            <p>Từ trang trại đạt chuẩn VietGAP, giao mỗi sáng đảm bảo độ tươi ngon tuyệt đối.</p>
+          </div>
+        </div>
+
+        <div class="ingredient-card reveal">
+          <div class="ingredient-icon icon-pate">
+            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#b11212" stroke-width="1.5">
+              <ellipse cx="12" cy="12" rx="9" ry="5" />
+              <path d="M3 12c0 3 4 5 9 5s9-2 9-5" />
+              <path d="M12 7v5" />
+            </svg>
+          </div>
+          <div class="ingredient-info">
+            <h4>Pate Nhà Làm</h4>
+            <p>Công thức bí mật gia truyền ba thế hệ, xay nhuyễn tự nhiên không chất bảo quản.</p>
+          </div>
+        </div>
+
+        <div class="ingredient-card reveal">
+          <div class="ingredient-icon icon-vegetable">
+            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#b11212" stroke-width="1.5">
+              <path d="M12 2a10 10 0 00-6.88 17.23L12 12l6.88 7.23A10 10 0 0012 2z" />
+              <path d="M12 12V2" />
+            </svg>
+          </div>
+          <div class="ingredient-info">
+            <h4>Rau Sống Hữu Cơ</h4>
+            <p>Rau thơm, dưa leo, ớt từ vườn rau sạch Đà Lạt, đảm bảo an toàn thực phẩm.</p>
+          </div>
+        </div>
       </div>
     </div>
+  </section>
 
-    <div class="info-block">
-      <div class="info-img">🚀</div>
-      <div class="info-text">
-        <h3>Hiện đại hóa (2024)</h3>
-        <p>Tiệm Bánh Mì Ông Dũng chính thức ra mắt hệ thống đặt hàng online, mang hương vị truyền thống đến tận tay bạn. Vẫn giữ nguyên công thức ba thế hệ, nhưng với trải nghiệm mua sắm hiện đại.</p>
+  <!-- MISSION -->
+  <section class="section mission-section">
+    <div class="container">
+      <div class="mission-content reveal">
+        <div class="section-badge" style="color: var(--secondary);">Sứ Mệnh</div>
+        <h2 class="section-title">Sứ Mệnh Của Chúng Tôi</h2>
+        <div class="section-line"></div>
+
+        <blockquote class="mission-quote">
+          "Mang hương vị bánh mì truyền thống Việt Nam đến mọi gia đình, với nguyên liệu tươi ngon nhất, phục vụ tận tâm
+          nhất, và giá cả hợp lý nhất."
+        </blockquote>
+        <p class="mission-author">— Ông Dũng, Người Sáng Lập</p>
+
+        <div class="stats-row">
+          <div class="stat reveal">
+            <div class="stat-number" data-target="30" data-suffix="+">0</div>
+            <div class="stat-label">Năm kinh nghiệm</div>
+          </div>
+          <div class="stat reveal">
+            <div class="stat-number" data-target="10000" data-suffix="+">0</div>
+            <div class="stat-label">Khách hàng mỗi tháng</div>
+          </div>
+          <div class="stat reveal">
+            <div class="stat-number" data-target="6" data-suffix="+">0</div>
+            <div class="stat-label">Loại bánh mì đặc biệt</div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- INGREDIENTS -->
-<section class="section" style="background:#fff;">
-  <div class="container">
-    <h2 class="section-title">Nguyên Liệu Chất Lượng</h2>
-    <div class="section-title-underline"></div>
-    <div class="ingredients-grid">
-      <div class="ingredient-card">
-        <div class="ingredient-img">🌾</div>
-        <div class="ingredient-info"><h4>Bột mì cao cấp</h4><p>Nhập khẩu từ Nhật Bản, tạo nên lớp vỏ giòn tan đặc trưng</p></div>
+  <!-- VALUES -->
+  <section class="section values-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-badge">Giá Trị</div>
+        <h2 class="section-title">Gìn Giữ Truyền Thống</h2>
+        <div class="section-line"></div>
       </div>
-      <div class="ingredient-card">
-        <div class="ingredient-img">🥩</div>
-        <div class="ingredient-info"><h4>Thịt heo tươi</h4><p>Từ trang trại đạt chuẩn VietGAP, giao mỗi sáng</p></div>
+
+      <div class="values-grid">
+        <div class="value-card reveal">
+          <div class="value-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#c8231a" stroke-width="1.5">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+          </div>
+          <h3>Chất Lượng Đảm Bảo</h3>
+          <p>Mỗi chiếc bánh mì đều trải qua quy trình kiểm tra nghiêm ngặt từ nguyên liệu đến thành phẩm.</p>
+        </div>
+
+        <div class="value-card reveal">
+          <div class="value-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#c8231a" stroke-width="1.5">
+              <path
+                d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+            </svg>
+          </div>
+          <h3>Tận Tâm Phục Vụ</h3>
+          <p>Đội ngũ nhân viên được đào tạo để mang đến trải nghiệm tốt nhất cho khách hàng.</p>
+        </div>
+
+        <div class="value-card reveal">
+          <div class="value-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#c8231a" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
+            </svg>
+          </div>
+          <h3>Tự Hào Việt Nam</h3>
+          <p>Giữ gìn và phát huy ẩm thực Việt Nam, đưa hương vị truyền thống đến mọi miền.</p>
+        </div>
       </div>
-      <div class="ingredient-card">
-        <div class="ingredient-img">🥚</div>
-        <div class="ingredient-info"><h4>Pate nhà làm</h4><p>Công thức bí mật gia truyền, xay nhuyễn tự nhiên</p></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section reveal">
+    <h2>Mong Muốn Được Phục Vụ Bạn</h2>
+    <p>Hãy đến thưởng thức hương vị bánh mì truyền thống Việt Nam tại Tiệm Bánh Mì Ông Dũng.</p>
+    <a href="/san-pham.html" class="cta-btn">Xem Thực Đơn Ngay</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="/images/bmod.png" alt="Tiệm Bánh Mì Ông Dũng">
+          <span>Ông Dũng</span>
+        </div>
+        <p>Hương vị truyền thống Việt Nam từ năm 1995. Nguyên liệu tươi mới mỗi ngày.</p>
+        <div class="footer-social">
+          <a href="/" title="Facebook" aria-label="Facebook">📘</a>
+          <a href="/" title="Instagram" aria-label="Instagram">📷</a>
+          <a href="/" title="YouTube" aria-label="YouTube">📺</a>
+          <a href="/" title="Zalo" aria-label="Zalo">💬</a>
+        </div>
       </div>
-      <div class="ingredient-card">
-        <div class="ingredient-img">🥬</div>
-        <div class="ingredient-info"><h4>Rau sống hữu cơ</h4><p>Rau thơm, dưa leo, ớt từ vườn rau sạch Đà Lạt</p></div>
+      <div class="footer-col">
+        <h4>Thực Đơn</h4>
+        <ul>
+          <li><a href="/san-pham.html">Bánh Mì</a></li>
+          <li><a href="/san-pham.html">Hamburger</a></li>
+          <li><a href="/san-pham.html">Bánh Bao</a></li>
+          <li><a href="/san-pham.html">Cà Phê</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Cửa Hàng</h4>
+        <ul>
+          <li><a href="/gioi-thieu.html">Giới Thiệu</a></li>
+          <li><a href="/">Tin Tức</a></li>
+          <li><a href="/">Khuyến Mãi</a></li>
+          <li><a href="/">Tuyển Dụng</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Liên Hệ</h4>
+        <ul>
+          <li>📍 123 Nguyễn Trãi, Q.1, TP.HCM</li>
+          <li>📞 0901 234 567</li>
+          <li>✉️ ongdung@banhmi.vn</li>
+        </ul>
       </div>
     </div>
-  </div>
-</section>
+    <div class="footer-bottom">
+      <p>© 2026 Tiệm Bánh Mì Ông Dũng. Mọi quyền được bảo lưu.</p>
+      <div class="footer-bottom-links">
+        <a href="/">Chính sách bảo mật</a>
+        <a href="/">Điều khoản sử dụng</a>
+      </div>
+    </div>
+  </footer>
 
-<!-- MISSION -->
-<section class="section" id="mission">
-  <div class="container" style="text-align:center; max-width:800px;">
-    <h2 class="section-title">Sứ Mệnh Của Chúng Tôi</h2>
-    <div class="section-title-underline"></div>
-    <blockquote style="font-size:1.15rem; color:var(--text-muted); font-style:italic; line-height:1.8;">
-      "Mang hương vị bánh mì truyền thống Việt Nam đến mọi gia đình, với nguyên liệu tươi ngon nhất, phục vụ tận tâm nhất, và giá cả hợp lý nhất."
-    </blockquote>
-    <p style="margin-top:16px; font-weight:600; color:var(--primary);">— Ông Dũng, Người sáng lập</p>
-    <div class="stats-row">
-      <div class="stat"><div class="stat-number">30+</div><div class="stat-label">Năm kinh nghiệm</div></div>
-      <div class="stat"><div class="stat-number">10,000+</div><div class="stat-label">Khách hàng mỗi tháng</div></div>
-      <div class="stat"><div class="stat-number">6+</div><div class="stat-label">Loại bánh mì đặc biệt</div></div>
-    </div>
-  </div>
-</section>
+  <script>
+    // Mobile Menu
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const closeMenuBtn = document.getElementById('closeMenuBtn');
+    hamburgerBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
+    closeMenuBtn.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    function closeMobileMenu() { mobileMenu.classList.remove('open'); }
 
-<footer class="footer">
-  <div class="footer-grid">
-    <div>
-      <h4>Về chúng tôi</h4>
-      <ul>
-        <li><a href="/gioi-thieu.html">Giới thiệu</a></li>
-        <li><a href="/gioi-thieu.html#history">Lịch sử</a></li>
-        <li><a href="/gioi-thieu.html#mission">Sứ mệnh</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>Sản phẩm</h4>
-      <ul>
-        <li><a href="/san-pham.html">Tất cả sản phẩm</a></li>
-        <li><a href="/san-pham.html">Bánh Mì Truyền Thống</a></li>
-        <li><a href="/san-pham.html">Bánh Mì Đặc Biệt</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>Hỗ trợ</h4>
-      <ul>
-        <li><a href="/">Đặt hàng</a></li>
-        <li><a href="#">Chính sách đổi trả</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>Liên hệ</h4>
-      <ul>
-        <li>📍 123 Nguyễn Huệ, Q.1, TP.HCM</li>
-        <li>📞 0909 123 456</li>
-        <li>✉️ lienhe@banhmidung.vn</li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">&copy; 2026 Tiệm Bánh Mì Ông Dũng. Tất cả quyền được bảo lưu.</div>
-</footer>
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
 
-<script>
-  const hamburgerBtn = document.getElementById('hamburgerBtn');
-  const mobileMenu = document.getElementById('mobileMenu');
-  const closeMenuBtn = document.getElementById('closeMenuBtn');
-  hamburgerBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
-  closeMenuBtn.addEventListener('click', () => mobileMenu.classList.remove('open'));
-  function closeMobileMenu() { mobileMenu.classList.remove('open'); }
+    // Scroll animations
+    const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15 });
+    reveals.forEach(el => observer.observe(el));
 
-  // Navbar scroll effect
-  window.addEventListener('scroll', () => {
-    const navbar = document.getElementById('navbar');
-    if (window.scrollY > 50) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-  });
-</script>
+    // Counter animation
+    const counters = document.querySelectorAll('.stat-number[data-target]');
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+          entry.target.classList.add('counted');
+          const target = parseInt(entry.target.dataset.target);
+          const suffix = entry.target.dataset.suffix || '';
+          let current = 0;
+          const increment = target / 60;
+          const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+              current = target;
+              clearInterval(timer);
+            }
+            if (target >= 1000) {
+              entry.target.textContent = Math.floor(current).toLocaleString() + suffix;
+            } else {
+              entry.target.textContent = Math.floor(current) + suffix;
+            }
+          }, 25);
+        }
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(counter => counterObserver.observe(counter));
+  </script>
 </body>
+
 </html>

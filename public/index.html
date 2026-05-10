@@ -937,15 +937,15 @@
         </div>
         <div class="hero-stats">
           <div class="stat-item">
-            <div class="stat-number">30+</div>
+            <div class="stat-number" data-target="30" data-suffix="+">0</div>
             <div class="stat-label">Năm kinh nghiệm</div>
           </div>
           <div class="stat-item">
-            <div class="stat-number">10K+</div>
+            <div class="stat-number" data-target="10000" data-suffix="+">0</div>
             <div class="stat-label">Khách hàng mỗi tháng</div>
           </div>
           <div class="stat-item">
-            <div class="stat-number">50+</div>
+            <div class="stat-number" data-target="50" data-suffix="+">0</div>
             <div class="stat-label">Món ngon</div>
           </div>
         </div>
@@ -1145,6 +1145,33 @@
       });
     }, { threshold: 0.15 });
     fadeElements.forEach(el => fadeObserver.observe(el));
+
+    // Counter animation
+    const counters = document.querySelectorAll('.stat-number[data-target]');
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+          entry.target.classList.add('counted');
+          const target = parseInt(entry.target.dataset.target);
+          const suffix = entry.target.dataset.suffix || '';
+          let current = 0;
+          const increment = target / 60;
+          const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+              current = target;
+              clearInterval(timer);
+            }
+            if (target >= 1000) {
+              entry.target.textContent = Math.floor(current).toLocaleString() + suffix;
+            } else {
+              entry.target.textContent = Math.floor(current) + suffix;
+            }
+          }, 25);
+        }
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(counter => counterObserver.observe(counter));
   </script>
 
 </body>
