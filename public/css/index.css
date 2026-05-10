@@ -612,6 +612,117 @@ img {
   line-height: 1.7;
 }
 
+/* ========== REVIEWS ========== */
+.reviews-section {
+  padding: 100px 40px;
+  background: linear-gradient(135deg, #fffef5 0%, #fffbe6 50%, #fffef5 100%);
+  overflow: hidden;
+}
+
+.reviews-section .section-badge {
+  color: #c8231a;
+}
+
+.reviews-section .section-line {
+  background: #d4a017;
+}
+
+.reviews-carousel {
+  position: relative;
+  margin-top: 48px;
+}
+
+.reviews-track {
+  display: flex;
+  gap: 32px;
+  animation: scroll-loop 24s linear infinite;
+}
+
+.reviews-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scroll-loop {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.review-card {
+  flex-shrink: 0;
+  width: 360px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.review-card::before {
+  content: '"';
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  font-family: 'Playfair Display', serif;
+  font-size: 6rem;
+  color: var(--primary);
+  opacity: 0.15;
+  line-height: 1;
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.review-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.review-info {
+  flex: 1;
+}
+
+.review-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+}
+
+.review-stars {
+  color: var(--gold);
+  font-size: 1rem;
+  letter-spacing: 2px;
+}
+
+.review-text {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-bottom: 16px;
+  font-style: italic;
+}
+
+.review-date {
+  font-size: 0.8rem;
+  color: rgba(0, 0, 0, 0.35);
+  text-align: right;
+}
+
 /* ========== FOOTER ========== */
 .footer {
   background: #0a0a0a;
@@ -858,6 +969,7 @@ img {
 
   .products-preview,
   .cta-banner,
+  .reviews-section,
   .footer {
     padding: 60px 24px 32px;
   }
